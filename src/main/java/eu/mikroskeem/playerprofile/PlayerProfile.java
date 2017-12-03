@@ -22,6 +22,8 @@
 
 package eu.mikroskeem.playerprofile;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -37,7 +39,7 @@ import java.util.UUID;
 public class PlayerProfile {
     @NotNull private final String username;
     @NotNull private final UUID uuid;
-    @NotNull private final Map<String, List<PlayerProfileProperty>> properties;
+    @NotNull private final Multimap<String, PlayerProfileProperty> properties;
 
     /**
      * Constructs new player profile
@@ -46,7 +48,7 @@ public class PlayerProfile {
      * @param uuid UUID
      * @param properties Properties
      */
-    public PlayerProfile(@NotNull String username, @NotNull UUID uuid, @NotNull Map<String, List<PlayerProfileProperty>> properties) {
+    public PlayerProfile(@NotNull String username, @NotNull UUID uuid, @NotNull Multimap<String, PlayerProfileProperty> properties) {
         this.username = username;
         this.uuid = uuid;
         this.properties = properties;
@@ -61,7 +63,7 @@ public class PlayerProfile {
     public PlayerProfile(@NotNull String username, @NotNull UUID uuid) {
         this.username = username;
         this.uuid = uuid;
-        this.properties = new HashMap<>();
+        this.properties = ArrayListMultimap.create();
     }
 
     /**
@@ -90,7 +92,7 @@ public class PlayerProfile {
      * @return Profile properties
      */
     @NotNull
-    public Map<String, List<PlayerProfileProperty>> getProperties() {
+    public Multimap<String, PlayerProfileProperty> getProperties() {
         return properties;
     }
 }

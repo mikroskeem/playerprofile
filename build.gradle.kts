@@ -16,6 +16,7 @@ repositories {
 // Project dependencies
 dependencies {
     implementation("org.jetbrains:annotations:15.0")
+    implementation("com.google.guava:guava:21.0")
 }
 
 // Sources jar
