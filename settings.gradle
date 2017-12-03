@@ -1,0 +1,3 @@
+rootProject.name = 'playerprofile'
+rootProject.buildFileName = 'build.gradle.kts'
+
